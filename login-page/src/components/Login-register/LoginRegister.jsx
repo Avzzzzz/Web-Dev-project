@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import './LoginRegister.css';
 import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
@@ -6,24 +6,34 @@ import { MdEmail } from "react-icons/md";
 
 const LoginRegister = () => {
 
-     const [action,setAction] = useState('');
+     const [action,setAction] = useState('login');
+     
+     useEffect(()=>{
+        if( action === 'register'){
+            document.querySelector('.login').style.display = 'none';
+            document.querySelector('.register').style.display = 'block';
+        } else if (action === 'login'){
+            document.querySelector('.login').style.display = 'block';
+            document.querySelector('.register').style.display = 'none';
+        }
+     },[action])
      const registerLink = () => {
 
-        setAction('active');
+        setAction('register');
 
      };
 
      const loginLink = () => {
 
-        setAction('active');
+        setAction('login');
 
      };
     
 
     return(
-        <div className={'wrapper ${action}'}>
+        <div className={`wrapper`}>
             <div className="form-box login">
-                <form action="" >
+                <form action="">
                     <h1>Login</h1>
                     <div className="input-box">
                         <input type="text" placeholder='Username' required/>
@@ -84,4 +94,4 @@ const LoginRegister = () => {
     );
 };
 
-    export default LoginRegister
+    export default LoginRegister 
