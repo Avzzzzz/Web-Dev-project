@@ -24,7 +24,10 @@ const LoginRegister = () => {
             <div className={`form-box ${action === 'login'? 'login' : 'register'}`}>
                 <form action="" >
                     <h1>{action === 'login'? 'Login' : 'Registration'}</h1>
-                    <div className="input-box">
+                    <div className="relative
+                                    w-ful
+                                    h-50px
+                                    my-30">
                         <input type="text" placeholder='Username' required/>
                         <FaUser className='icon' />
                     </div>
